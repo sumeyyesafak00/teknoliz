@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teknoliz - AI Tech Analyzer</title>
+    <!-- Tailwind CSS (CDN for rapid prototyping) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        deepblack: '#0B0B0B',
+                        carddark: '#161616',
+                        neonpurple: '#A259FF',
+                        successgreen: '#10B981',
+                        dangerred: '#F43F5E',
+                        muted: '#A0A0A0',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'neon': '0 0 15px rgba(162, 89, 255, 0.4)',
+                        'neon-strong': '0 0 25px rgba(162, 89, 255, 0.6)',
+                        'glass': '0 4px 30px rgba(0, 0, 0, 0.1)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0B0B0B;
+            color: #FFFFFF;
+            font-family: 'Inter', sans-serif;
+        }
+        .glass-panel {
+            background: rgba(22, 22, 22, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 1rem;
+        }
+        
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B0B0B;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #161616;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #A259FF;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-neonpurple selection:text-white">
+    <!-- Header -->
+    <header class="glass-panel sticky top-0 z-50 rounded-none border-t-0 border-l-0 border-r-0 border-b border-white/10 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-lg bg-neonpurple flex items-center justify-center shadow-neon">
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </div>
+                <h1 class="text-xl font-bold tracking-tight">Tekno<span class="text-neonpurple">liz</span></h1>
+            </div>
+            <nav class="hidden md:flex gap-6">
+                <a href="/" class="text-white hover:text-neonpurple transition-colors">Ana Sayfa</a>
+                <a href="#" class="text-muted hover:text-white transition-colors">Karşılaştırma</a>
+                <a href="#" class="text-muted hover:text-white transition-colors">Hakkımızda</a>
+            </nav>
+            <button class="px-5 py-2 rounded-full bg-carddark border border-white/10 hover:border-neonpurple hover:shadow-neon transition-all text-sm font-medium text-white">
+                Giriş Yap
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow w-full max-w-7xl mx-auto px-6 py-12">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="glass-panel rounded-none border-b-0 border-l-0 border-r-0 border-t border-white/10 py-8 text-center text-muted mt-auto">
+        <p class="text-sm">© 2026 Teknoliz. Tüm Hakları Saklıdır.</p>
+    </footer>
+</body>
+</html>
